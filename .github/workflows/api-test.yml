@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ROUYI_USERNAME: ${{ secrets.ROUYI_USERNAME }}
-      ROUYI_PASSWORD: ${{ secrets.ROUYI_PASSWORD }}
+      RUOYI_USERNAME: ${{ secrets.RUOYI_USERNAME }}
+      RUOYI_PASSWORD: ${{ secrets.RUOYI_PASSWORD }}
 
     steps:
       - name: Checkout code
@@ -27,5 +27,5 @@ jobs:
 
       - name: Run API tests
         run: |
-          python -c "import os; print('USERNAME:', bool(os.getenv('ROUYI_USERNAME'))); import data.login_data; print('login_data import OK')"
+          python -c "import os; print('USERNAME:', bool(os.getenv('RUOYI_USERNAME'))); import data.login_data; print('login_data import OK')"
           python -m pytest --env=local
