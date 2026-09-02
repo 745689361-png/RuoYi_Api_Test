@@ -22,4 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run API tests
+        env:
+          ROUYI_USERNAME: ${{ secrets.ROUYI_USERNAME }}
+          ROUYI_PASSWORD: ${{ secrets.ROUYI_PASSWORD }}
         run: pytest --env=local
