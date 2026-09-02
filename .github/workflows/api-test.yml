@@ -30,4 +30,7 @@ jobs:
           python -c "import os; print('USERNAME exists:', bool(os.getenv('ROUYI_USERNAME'))); print('PASSWORD exists:', bool(os.getenv('ROUYI_PASSWORD')))"
 
       - name: Run API tests
-        run: pytest --env=local
+        run: |
+          python -c "import os; print('pytest USERNAME:', bool(os.getenv('ROUYI_USERNAME')))"
+          python -c "import os; print('pytest PASSWORD:', bool(os.getenv('ROUYI_PASSWORD')))"
+          pytest --env=local
