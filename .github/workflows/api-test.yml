@@ -1,3 +1,4 @@
+
 name: RuoYi API Test
 
 on:
@@ -20,6 +21,13 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Check secrets
+        env:
+          ROUYI_USERNAME: ${{ secrets.ROUYI_USERNAME }}
+          ROUYI_PASSWORD: ${{ secrets.ROUYI_PASSWORD }}
+        run: |
+          python -c "import os; print('USERNAME exists:', bool(os.getenv('ROUYI_USERNAME'))); print('PASSWORD exists:', bool(os.getenv('ROUYI_PASSWORD')))"
 
       - name: Run API tests
         env:
